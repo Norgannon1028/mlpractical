@@ -197,6 +197,7 @@ class MetOfficeDataProvider(DataProvider):
         # normalise data to zero mean, unit standard deviation
         filtered -= np.mean(filtered)
         filtered /= np.std(filtered)
+        normalised=filtered
         # convert from flat sequence to windowed data
         shape = (normalised.shape[-1] - self.window_size + 1, self.window_size)
         strides = normalised.strides + (normalised.strides[-1],)
